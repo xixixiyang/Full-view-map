@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>    
+</head>
+<style type="text/css">
+    body,
+    html,
+    #map{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <div id="map"></div>
+</body>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GgBzQDEo8aW1VxmGRF73toYvt1aDtMVw"></script>
+<script type="text/javascript">
+    window.navigator.geolocation.getCurrentPosition(function(data){
+        var map = new BMap.Map("map");
+        var point = new BMap.Point(data.coords.longitude,data.coords.latitude);
+        map.centerAndZoom(point,17);
+    },function(err){})
+</script>
+</html>
